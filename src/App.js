@@ -16,6 +16,13 @@ class App extends Component {
   state = {
     menu: myData,
 
+    totalOrder: [
+      {
+
+      }
+    ],
+    individualOrder: []
+
 
    }
 

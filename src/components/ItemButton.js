@@ -4,6 +4,22 @@ import Dropdown from 'react-bootstrap/Dropdown'
 
 class ItemButton extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      value : '',
+    };
+  }
+
+    select = (event) => {
+      this.setState({
+        value: event.target.innerText
+      });
+
+      setTimeout(() =>
+      console.log(this.state.value), 1000);
+
+    }
 
 
   render() {
@@ -16,19 +32,19 @@ class ItemButton extends Component {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Cafe Latte</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Flat White</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Cappucino</Dropdown.Item>
-        <Dropdown.Item href="#/action-1">Single Espresso</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Double Espresso</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Cortado</Dropdown.Item>
-        <Dropdown.Item href="#/action-1">Tea</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Choc Mudcake</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Choc Mousse</Dropdown.Item>
-        <Dropdown.Item href="#/action-1">Affogato</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Blueberry Muffin</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Chocolate Chip Muffin</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Muffin Of The Day</Dropdown.Item>
+        <Dropdown.Item eventKey= 'abc' href="#/action-1">Cafe Latte</Dropdown.Item>
+        <Dropdown.Item onClick={this.select}>Flat White</Dropdown.Item>
+        <Dropdown.Item onClick={this.select}>Cappucino</Dropdown.Item>
+        <Dropdown.Item onClick={this.select}>Single Espresso</Dropdown.Item>
+        <Dropdown.Item onClick={this.select}>Double Espresso</Dropdown.Item>
+        <Dropdown.Item onClick={this.select}>Cortado</Dropdown.Item>
+        <Dropdown.Item onClick={this.select}>Tea</Dropdown.Item>
+        <Dropdown.Item onClick={this.select}>Choc Mudcake</Dropdown.Item>
+        <Dropdown.Item onClick={this.select}>Choc Mousse</Dropdown.Item>
+        <Dropdown.Item onClick={this.select}>Affogato</Dropdown.Item>
+        <Dropdown.Item onClick={this.select}>Blueberry Muffin</Dropdown.Item>
+        <Dropdown.Item onClick={this.select}>Chocolate Chip Muffin</Dropdown.Item>
+        <Dropdown.Item onClick={this.select}>Muffin Of The Day</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
 
