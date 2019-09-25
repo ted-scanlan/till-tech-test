@@ -6,12 +6,11 @@ class Menu extends Component {
 getValues() {
 let arr = [];
 arr = Object.keys(this.props.menu.prices[0]).map((key) =>
-
   <div key={key} className="row">
     <div>{key} - {this.props.menu.prices[0][key]}</div>
   </div>
-
 )
+
 return arr;
 
 }
@@ -19,15 +18,28 @@ return arr;
   render() {
 
   return (
-    <div className="Menu">
+
+    <div className="Menu" style={headerStyle} >
       <h1> Menu</h1>
-      <div className="content">
+      <div className="content" style={menuStyle}>
         {this.getValues()}
 
       </div>
     </div>
+
   );
 }
+}
+
+const menuStyle = {
+textAlign: 'center',
+  margin: 20,
+  backgroundColor: 'grey'
+}
+const headerStyle = {
+textAlign: 'center',
+  marginLeft: 20,
+
 }
 
 export default Menu;

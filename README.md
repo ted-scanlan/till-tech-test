@@ -13,6 +13,12 @@ So i can make an order
 I'd like to be able to see a price list
 ```
 
+```
+As a customer
+So i can make an order
+I'd like to be able to select an item 
+```
+
 
 
 
