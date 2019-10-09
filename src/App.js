@@ -39,12 +39,10 @@ class App extends Component {
       <Col>
         <h2> Place your order:</h2>
         <ItemButton/>
-      
+
 
         </Col>
-        <Col>
-        <h2> Receipt</h2>
-        </Col>
+      
       </Row>
       </Container>
     </div>

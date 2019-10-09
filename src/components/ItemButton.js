@@ -4,6 +4,12 @@ import Form from 'react-bootstrap/Form'
 
 import Button from 'react-bootstrap/Button'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Receipt from './Receipt.js';
+
 class ItemButton extends Component {
 
   constructor(props) {
@@ -15,7 +21,7 @@ class ItemButton extends Component {
     }
 
     this.saveOrder=this.saveOrder.bind(this)
-    
+
   }
 
   saveOrder() {
@@ -29,12 +35,13 @@ class ItemButton extends Component {
       totalOrder: orders
     })
 
+  }
+
+  sendReceipt() {
 
 
-    // this.setState({
-    //   totalOrder: this.state.totalOrder.concat(`${this.state.item}, ${this.state.quantity}`),
-    //   // totalOrder: this.state.totalOrder.concat(this.state.quantity)
-    // });
+
+
   }
 
 
@@ -57,6 +64,9 @@ class ItemButton extends Component {
   render() {
 
   return (
+    <Container>
+    <Row>
+    <Col>
 
     <Form>
       <Form.Group controlId="exampleForm.ControlInput1">
@@ -108,13 +118,22 @@ class ItemButton extends Component {
         </Form.Control>
       </Form.Group>
       <Button onClick={this.saveOrder} variant="primary" type="button">
-   Order
+   Add to Order
  </Button>
- <Button onClick={this.seeOrder} variant="primary" type="button">
-see order
+ <Button onClick={this.sendReceipt} variant="primary" type="button">
+Print Receipt
 </Button>
 
     </Form>
+    </Col>
+
+
+  <Col>
+  <Receipt order={this.state.totalOrder}/>
+  </Col>
+  </Row>
+
+  </Container>
 
 
 
