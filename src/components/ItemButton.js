@@ -11,7 +11,30 @@ class ItemButton extends Component {
     this.state = {
       item : '',
       quantity: '',
-    };
+      totalOrder: {}
+    }
+
+    this.saveOrder=this.saveOrder.bind(this)
+    
+  }
+
+  saveOrder() {
+
+    let orders = {...this.state.totalOrder};
+    let item = this.state.item
+    let quantity = this.state.quantity
+    orders[item] = quantity
+
+    this.setState({
+      totalOrder: orders
+    })
+
+
+
+    // this.setState({
+    //   totalOrder: this.state.totalOrder.concat(`${this.state.item}, ${this.state.quantity}`),
+    //   // totalOrder: this.state.totalOrder.concat(this.state.quantity)
+    // });
   }
 
 
@@ -19,9 +42,6 @@ class ItemButton extends Component {
       this.setState({
         item: event.target.value
       });
-
-      setTimeout(() =>
-      console.log(this.state.item), 1000);
     }
 
     handleQuantityChange = (event) => {
@@ -29,8 +49,6 @@ class ItemButton extends Component {
         quantity: event.target.value
       });
 
-      setTimeout(() =>
-      console.log(this.state.quantity), 1000);
     }
 
 
@@ -89,9 +107,12 @@ class ItemButton extends Component {
           <option>20</option>
         </Form.Control>
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button onClick={this.saveOrder} variant="primary" type="button">
    Order
  </Button>
+ <Button onClick={this.seeOrder} variant="primary" type="button">
+see order
+</Button>
 
     </Form>
 
