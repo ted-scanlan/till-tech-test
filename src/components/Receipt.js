@@ -26,13 +26,24 @@ class Receipt extends Component {
 
   render() {
 
- let { printRequest } = this.props.order
+    let  printRequest  = this.props.order
+    let item = Object.keys(printRequest).map((key) =>
+    <div key={key} className="row">
+    <div>{printRequest[key]} X {key}</div>
+    </div>
+  )
+
+
+
+
+  setTimeout(console.log(item), 1000);
 
   return (
 
     <div>
       <div>
-      {printRequest}
+      {item}
+
 
       </div>
 
