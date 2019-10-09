@@ -9,6 +9,8 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Receipt from './Receipt.js';
+import OrderButton from './OrderButton.js';
+
 
 class ItemButton extends Component {
 
@@ -17,10 +19,22 @@ class ItemButton extends Component {
     this.state = {
       item : '',
       quantity: '',
-      totalOrder: {}
+      totalOrder: {},
+      isEmptyState: true
     }
 
     this.saveOrder=this.saveOrder.bind(this)
+
+  }
+
+
+
+  myFunction = () => {
+    this.setState({
+      ...this.state,
+      isEmptyState: false,
+      isAddTripState: true
+    })
 
   }
 
@@ -120,16 +134,19 @@ class ItemButton extends Component {
       <Button onClick={this.saveOrder} variant="primary" type="button">
    Add to Order
  </Button>
- <Button onClick={this.sendReceipt} variant="primary" type="button">
-Print Receipt
-</Button>
+
+ {this.state.isEmptyState &&
+ <OrderButton print={this.myFunction}/>}
 
     </Form>
     </Col>
 
 
   <Col>
-  <Receipt order={this.state.totalOrder}/>
+  {this.state.isAddTripState &&
+      <Receipt order={this.state.totalOrder}/>
+
+  }
   </Col>
   </Row>
 

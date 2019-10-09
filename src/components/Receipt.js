@@ -9,20 +9,11 @@ class Receipt extends Component {
     this.state = {
       orderToPrint: ''
     }
-      this.logReceipt=this.logReceipt.bind(this)
+  
 
   }
 
-  logReceipt() {
 
-    this.setState({
-      orderToPrint: this.props.order
-    })
-
-
-
-
-  }
 
   render() {
 
@@ -36,7 +27,7 @@ class Receipt extends Component {
 
 
 
-  setTimeout(console.log(item), 1000);
+
 
   return (
 
@@ -47,9 +38,7 @@ class Receipt extends Component {
 
       </div>
 
-      <Button onClick={this.logReceipt} variant="primary" type="button">
-     log Receipt
-     </Button>
+
 
     </div>
 
