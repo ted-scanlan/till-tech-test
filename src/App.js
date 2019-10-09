@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Menu from './components/Menu';
-import ItemButton from './components/ItemButton';
+import Order from './components/Order';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -38,11 +38,11 @@ class App extends Component {
       <Row>
       <Col>
         <h2> Place your order:</h2>
-        <ItemButton/>
+        <Order menu={this.state.menu}/>
 
 
         </Col>
-      
+
       </Row>
       </Container>
     </div>
