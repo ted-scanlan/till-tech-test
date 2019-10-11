@@ -37,8 +37,8 @@ textAlign: 'center',
   backgroundColor: 'grey'
 }
 const headerStyle = {
-textAlign: 'center',
-  marginLeft: 20,
+textAlign: 'left',
+  marginLeft: 50,
 
 }
 

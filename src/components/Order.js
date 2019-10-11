@@ -19,6 +19,7 @@ class Order extends Component {
     this.state = {
       item : '',
       quantity: '',
+      name: '',
       totalOrder: {},
       isEmptyState: true
     }
@@ -60,8 +61,8 @@ class Order extends Component {
       this.setState({
         quantity: event.target.value
       });
-
     }
+
 
 
 
@@ -76,6 +77,7 @@ class Order extends Component {
         <Col>
 
         <Form>
+         <Form.Control type="email" placeholder="Please enter your name" onChange={this.handleNameChange}  />
         <Form.Group controlId="exampleForm.ControlInput1">
 
         </Form.Group>

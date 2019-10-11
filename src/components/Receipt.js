@@ -9,8 +9,6 @@ class Receipt extends Component {
     this.state = {
 
     }
-
-
   }
 
 
@@ -19,16 +17,32 @@ class Receipt extends Component {
     let menuPrices = this.props.menu['prices'][0]
     console.log(menuPrices)
 
-    let  printRequest  = this.props.order
+    let printRequest  = this.props.order
+
     let item = Object.keys(printRequest).map((key) =>
     <div key={key} className="row">
-
     <div >
     <div>{printRequest[key]} X {key} - £{menuPrices[key]*printRequest[key]} </div>
     </div>
     </div>
+
+  )
+  let total = 0
+  Object.keys(printRequest).forEach((key) =>
+    total += menuPrices[key]*printRequest[key]
   )
 
+    // total * 0.15
+    // let roundedtax = tax.toFixed(2)
+
+
+
+  let tax = total * 0.15
+  let roundedtax = tax.toFixed(2)
+
+
+  let receiptTotal = tax + total
+  let roundedReceiptTotal = receiptTotal.toFixed(2)
 
 
 
@@ -39,13 +53,11 @@ class Receipt extends Component {
 
       <div>
       {item}
+      <div>
+      Service (0.15%) - £{roundedtax}
       </div>
-
-
-
-
-
-
+      Total bill - £{roundedReceiptTotal}
+      </div>
   );
 }
 }
