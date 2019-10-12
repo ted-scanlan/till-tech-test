@@ -41,8 +41,13 @@ class App extends Component {
   return (
 
     <div className="App" style={appStyle}>
-      <h1> The Coffee Connection</h1>
+
       <Container>
+
+      <div style={headerStyle}>
+        <h1> The Coffee Connection</h1>
+        </div>
+
       <Row>
 
       <Col>
@@ -87,5 +92,11 @@ export default App;
 
 const appStyle = {
   backgroundColor: "#E27D60"
+
+}
+const headerStyle = {
+  backgroundColor: "red",
+  textAlign: "center",
+  margin: "20px"
 
 }

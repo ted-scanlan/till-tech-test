@@ -1,8 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Till Tech Test ##
 
-
-
-
+This is a short tech test practice using React and Bootstrap to create a single page application for a coffee shop. I also used it as a practice for TDD'ing a React application.   
 
 
 ## User Stories ##
@@ -16,8 +14,32 @@ I'd like to be able to see a price list
 ```
 As a customer
 So i can make an order
-I'd like to be able to select an item 
+I'd like to be able to select an item
 ```
+
+```
+As a customer
+So I can place an order
+I'd like to be able to order multiple items
+```
+
+```
+As a customer
+So I can see what I've ordered
+I'd like to be able to generate a receipt of my order
+```
+
+
+To use:
+
+Clone this repo
+then in the command line:
+```
+cd my-app
+npm start
+```
+
+Go to to your localhost
 
 
 
