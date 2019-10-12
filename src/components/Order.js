@@ -77,7 +77,6 @@ class Order extends Component {
         <Col>
 
         <Form>
-         <Form.Control type="email" placeholder="Please enter your name" onChange={this.handleNameChange}  />
         <Form.Group controlId="exampleForm.ControlInput1">
 
         </Form.Group>
@@ -140,7 +139,7 @@ class Order extends Component {
 
             <Col>
             {this.state.showReceipt &&
-              <Receipt order={this.state.totalOrder} menu={this.props.menu}/>
+              <Receipt order={this.state.totalOrder} menu={this.props.menu} name={this.props.name}/>
 
             }
             </Col>

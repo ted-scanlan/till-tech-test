@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Menu from './components/Menu';
 import Order from './components/Order';
-import Welcome from './components/Welcome';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -28,7 +27,6 @@ class App extends Component {
      this.setState({
        name: event.target.value
      });
-     // let welcomeMessage = `Welcome, ${this.state.name}`
    }
 
    displayMessage = () => {
@@ -50,21 +48,15 @@ class App extends Component {
       <Col>
       <Form>
       <Form.Control type="email" placeholder="What's your name?" onChange={this.handleNameChange}  />
-      <Button variant="primary" type="button" onClick={this.displayMessage}>
-      Enter
-      </Button>
+      <Button variant="primary" type="button" onClick={this.displayMessage}>Enter</Button>
       </Form>
+        </Col>
+        <Col>
       {this.state.showMessage &&
         <div>
       Welcome {this.state.name}! Please make an order!
-
         </div>
-
       }
-
-
-      </Col>
-      <Col>
 
 
       </Col>
@@ -78,7 +70,7 @@ class App extends Component {
       <Row>
       <Col>
         <h2> Place your order:</h2>
-        <Order menu={this.state.menu}/>
+        <Order menu={this.state.menu} name={this.state.name}/>
 
 
         </Col>
