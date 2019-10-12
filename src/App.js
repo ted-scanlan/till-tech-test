@@ -40,8 +40,8 @@ class App extends Component {
   render() {
   return (
 
-    <div className="App">
-      <h1> Ted's Coffee Shed</h1>
+    <div className="App" style={appStyle}>
+      <h1> The Coffee Connection</h1>
       <Container>
       <Row>
 
@@ -83,3 +83,9 @@ class App extends Component {
 }
 
 export default App;
+
+
+const appStyle = {
+  backgroundColor: "#E27D60"
+
+}
