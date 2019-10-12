@@ -28,6 +28,17 @@ class Order extends Component {
 
   }
 
+  startAgain = () => {
+    this.setState({
+      ...this.state,
+      isEmptyState: true,
+      showReceipt: false,
+      totalOrder: {}
+    })
+
+
+  }
+
 
 
   displayReceipt = () => {
@@ -139,7 +150,7 @@ class Order extends Component {
 
             <Col>
             {this.state.showReceipt &&
-              <Receipt order={this.state.totalOrder} menu={this.props.menu} name={this.props.name}/>
+              <Receipt order={this.state.totalOrder} menu={this.props.menu} name={this.props.name} startAgain={this.startAgain}/>
 
             }
             </Col>

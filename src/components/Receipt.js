@@ -15,12 +15,15 @@ class Receipt extends Component {
     }
   }
 
+  startAgain = () => {
+  this.props.startAgain()
+}
+
 
 
   render() {
 
 console.log(this.props);
-
 
     let menuPrices = this.props.menu['prices'][0]
     console.log(menuPrices)
@@ -29,52 +32,35 @@ console.log(this.props);
 
     let item = Object.keys(printRequest).map((key) =>
 
-    <div className="totalBill" style={{textAlign: 'left'}}>
-    {printRequest[key]} X {key} -
-    </div>
+      <div className="totalBill" style={{textAlign: 'left'}}>
+      {printRequest[key]} X {key} -
+      </div>
+  )
+  let price = Object.keys(printRequest).map((key) =>
 
+  <div>£{(menuPrices[key]*printRequest[key]).toFixed(2)} </div>
 
 )
-    let price = Object.keys(printRequest).map((key) =>
+let total = 0
+Object.keys(printRequest).forEach((key) =>
+  total += menuPrices[key]*printRequest[key]
+)
+let tax = total * 0.15
+let roundedtax = tax.toFixed(2)
+
+let receiptTotal = tax + total
+let roundedReceiptTotal = receiptTotal.toFixed(2)
 
 
-
-    <div>£{(menuPrices[key]*printRequest[key]).toFixed(2)} </div>
-
-
-
-  )
-
-
-
-
-  let total = 0
-  Object.keys(printRequest).forEach((key) =>
-    total += menuPrices[key]*printRequest[key]
-  )
-
-    // total * 0.15
-    // let roundedtax = tax.toFixed(2)
-
-
-
-  let tax = total * 0.15
-  let roundedtax = tax.toFixed(2)
-
-
-  let receiptTotal = tax + total
-  let roundedReceiptTotal = receiptTotal.toFixed(2)
-
-
-  const ColoredLine = ({ color }) => (
-      <hr
-          style={{
-              color: color,
-              backgroundColor: color,
-              height: 5
-          }}
-      />
-  );
+const ColoredLine = ({ color }) => (
+  <hr
+  style={{
+    color: color,
+    backgroundColor: color,
+    height: 5
+  }}
+  />
+);
 
 
   return (
@@ -109,6 +95,12 @@ console.log(this.props);
     <Col>
     £{roundedReceiptTotal}
     </Col>
+    </Row>
+    <hr/>
+    <Row>
+    <Button onClick={this.startAgain} variant="primary" type="button">
+    Place another order
+    </Button>
     </Row>
     </Container>
 
